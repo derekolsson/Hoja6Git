@@ -151,8 +151,10 @@ public class Hoja6{
 		boolean subset = true;
 		while (javaIt.hasNext()){
 			Object a = javaIt.next();
-			if (!webSet.contains(a)){
+			System.out.println("Before IF");
+			if (webSet.contains(a)==false){
 				subset=false;
+				System.out.println("I GOT HERE");
 			}
 		}
 		if (subset){
