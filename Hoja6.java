@@ -135,6 +135,8 @@ public class Hoja6{
 			Object a = webIt.next();
 			if (!javaSet.contains(a)){
 				System.out.println(a);
+			}
+		}
 		while (cellIt.hasNext()){
 			Object a = webIt.next();
 			if (!webSet.contains(a) && !javaSet.contains(a)){
@@ -142,6 +144,25 @@ public class Hoja6{
 			}
 		}
 		
+		
+		//5.Java is a subset of web?
+		//iterate Java, if something is not in Web, flag false
+		
+		boolean subset = true;
+		while (javaIt.hasNext()){
+			Object a = javaIt.next();
+			if (!webSet.contains(a)){
+				subset=false;
+			}
+		}
+		if (subset){
+			System.out.println("\n The Java developers ARE a subset of the Web developers");
+		}
+		else {
+			System.out.println("\n The Java developers ARE NOT a subset of the Web developers");
+		}
+
+		//6.
 	}
 }	
 	
