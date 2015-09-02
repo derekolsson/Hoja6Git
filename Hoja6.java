@@ -96,7 +96,7 @@ public class Hoja6{
 		
 		//1. Union de los tres
 		// iterate javaSet, then look for contains() in the other sets
-		System.out.println("Users with experience in Java, Web and Cell: ");
+		System.out.println("\nUsers with experience in Java, Web and Cell: ");
 		while (javaIt.hasNext()){
 			Object a = javaIt.next();
 			if (webSet.contains(a) && cellSet.contains(a)){
@@ -104,9 +104,37 @@ public class Hoja6{
 			}
 		}
 		
+		//2. Java, but not web
+		// iterate java, !webSet.contains()
+		System.out.println("\nUsers with experience in Java, but not Web: ");
+		while (javaIt.hasNext()){
+			Object a = javaIt.next();
+			if (!webSet.contains(a)){
+				System.out.println(a);
+			}
+		}
 		
+		//3. Web and cell, but not Java
+		// iterate web, cellSet.contains&&!javaSet.contains() 
 		
+		System.out.println("\nUsers with experience in Web and Cell, but not Java: ");
+		while (webIt.hasNext()){
+			Object a = webIt.next();
+			if (cellSet.contains(a) && !javaSet.contains(a)){
+				System.out.println(a);
+			}
+		}
 		
+		//3. Web and cell, but not Java
+		// iterate web, cellSet.contains&&!javaSet.contains() 
+		
+		System.out.println("\nUsers with experience in Web and Cell, but not Java: ");
+		while (webIt.hasNext()){
+			Object a = webIt.next();
+			if (cellSet.contains(a) && !javaSet.contains(a)){
+				System.out.println(a);
+			}
+		}
 		
 	}
 }	
