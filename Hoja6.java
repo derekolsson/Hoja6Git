@@ -94,8 +94,12 @@ public class Hoja6{
 		Iterator webIt = webSet.iterator();
 		Iterator cellIt = cellSet.iterator();
 		
+		//These will be redone every time to reset the iterator
+		
+		//////////////////////////////////////////////////////////////////
 		//1. Union de los tres
 		// iterate javaSet, then look for contains() in the other sets
+		////////////////////////////////////////////////////////////////
 		System.out.println("\nUsers with experience in Java, Web and Cell: ");
 		while (javaIt.hasNext()){
 			Object a = javaIt.next();
@@ -103,9 +107,14 @@ public class Hoja6{
 				System.out.println(a);
 			}
 		}
-		
+		/////////////////////////////////////
 		//2. Java, but not web
 		// iterate java, !webSet.contains()
+		/////////////////////////////////////
+		javaIt = javaSet.iterator();
+		webIt = webSet.iterator();
+		cellIt = cellSet.iterator();
+		
 		System.out.println("\nUsers with experience in Java, but not Web: ");
 		while (javaIt.hasNext()){
 			Object a = javaIt.next();
@@ -113,9 +122,14 @@ public class Hoja6{
 				System.out.println(a);
 			}
 		}
-		
+		///////////////////////////////////////////////////////
 		//3. Web and cell, but not Java
 		// iterate web, cellSet.contains&&!javaSet.contains() 
+		///////////////////////////////////////////////////////
+		
+		javaIt = javaSet.iterator();
+		webIt = webSet.iterator();
+		cellIt = cellSet.iterator();
 		
 		System.out.println("\nUsers with experience in Web and Cell, but not Java: ");
 		while (webIt.hasNext()){
@@ -124,10 +138,14 @@ public class Hoja6{
 				System.out.println(a);
 			}
 		}
-		
+		////////////////////////////////////////////////////////
 		//4. Web OR cell, but not Java
 		// iterate web, !javaSet.contains() 
-		// iterate cell, !javaSet &&!webSet     avoids repetition
+		// iterate cell, !javaSet &&!webSet to avoid repetition
+		////////////////////////////////////////////////////////
+		javaIt = javaSet.iterator();
+		webIt = webSet.iterator();
+		cellIt = cellSet.iterator();
 		
 		System.out.println("\nUsers with experience in Web OR Cell, but not Java: ");
 		
@@ -144,17 +162,20 @@ public class Hoja6{
 			}
 		}
 		
-		
+		////////////////////////////////////////////////////////
 		//5.Java is a subset of web?
 		//iterate Java, if something is not in Web, flag false
+		////////////////////////////////////////////////////////
+		javaIt = javaSet.iterator();
+		webIt = webSet.iterator();
+		cellIt = cellSet.iterator();
 		
+		//flag starts true
 		boolean subset = true;
 		while (javaIt.hasNext()){
 			Object a = javaIt.next();
-			System.out.println("Before IF");
 			if (webSet.contains(a)==false){
 				subset=false;
-				System.out.println("I GOT HERE");
 			}
 		}
 		if (subset){
@@ -164,11 +185,14 @@ public class Hoja6{
 			System.out.println("\n The Java developers ARE NOT a subset of the Web developers");
 		}
 
+		//////////////////////////////////////////
 		//6. Biggest set with the people involved
 		// compare sizes
+		/////////////////////////////////////////
 		
 		Set biggest;
 		String big;
+		
 		//compare web vs java
 		//save name and set
 		if (webSet.size() > javaSet.size()){
@@ -179,12 +203,15 @@ public class Hoja6{
 			biggest = javaSet;
 			big = " Java.";
 		}
+		
 		//compare biggest to cells
 		//overwrite if cell is bigger
 		if (biggest.size() < cellSet.size()){
 			biggest = cellSet;
 			big = " Cellulars.";
 		}
+		
+		//show results
 		System.out.println("The biggest set of developers is"+big);
 		System.out.println("The developers involved are: \n");
 		System.out.println(biggest);
