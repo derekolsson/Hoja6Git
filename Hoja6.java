@@ -138,7 +138,7 @@ public class Hoja6{
 			}
 		}
 		while (cellIt.hasNext()){
-			Object a = webIt.next();
+			Object a = cellIt.next();
 			if (!webSet.contains(a) && !javaSet.contains(a)){
 				System.out.println(a);
 			}
@@ -162,7 +162,37 @@ public class Hoja6{
 			System.out.println("\n The Java developers ARE NOT a subset of the Web developers");
 		}
 
-		//6.
+		//6. Biggest set with the people involved
+		// compare sizes
+		
+		Set biggest;
+		String big;
+		//compare web vs java
+		//save name and set
+		if (webSet.size() > javaSet.size()){
+			biggest=webSet;
+			big = " Web.";
+		}		
+		else{
+			biggest = javaSet;
+			big = " Java.";
+		}
+		//compare biggest to cells
+		//overwrite if cell is bigger
+		if (biggest.size() < cellSet.size()){
+			biggest = cellSet;
+			big = " Cellulars.";
+		}
+		System.out.println("The biggest set of developers is"+big);
+		System.out.println("The developers involved are: \n");
+		System.out.println(biggest);
+		
+		//7. In order
+		// Save as tree (ordered by default), then print
+		
+		TreeSet sorted = new TreeSet(biggest);
+		System.out.println("\nIn order, the developers are : ");
+		System.out.println(sorted);
 	}
 }	
 	
