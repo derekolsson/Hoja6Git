@@ -125,13 +125,19 @@ public class Hoja6{
 			}
 		}
 		
-		//3. Web and cell, but not Java
-		// iterate web, cellSet.contains&&!javaSet.contains() 
+		//4. Web OR cell, but not Java
+		// iterate web, !javaSet.contains() 
+		// iterate cell, !javaSet &&!webSet     avoids repetition
 		
-		System.out.println("\nUsers with experience in Web and Cell, but not Java: ");
+		System.out.println("\nUsers with experience in Web OR Cell, but not Java: ");
+		
 		while (webIt.hasNext()){
 			Object a = webIt.next();
-			if (cellSet.contains(a) && !javaSet.contains(a)){
+			if (!javaSet.contains(a)){
+				System.out.println(a);
+		while (cellIt.hasNext()){
+			Object a = webIt.next();
+			if (!webSet.contains(a) && !javaSet.contains(a)){
 				System.out.println(a);
 			}
 		}
